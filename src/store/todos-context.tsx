@@ -7,13 +7,13 @@ type TodosCtxObj = {
   removeTodo: (id: string) => void;
 };
 
-const TodosContext = React.createContext<TodosCtxObj>({
+export const TodosContext = React.createContext<TodosCtxObj>({
   items: [],
   addTodo: () => {},
   removeTodo: () => {},
 });
 
-const TodosContentProvider: React.FC<React.PropsWithChildren> = (props) => {
+const TodosContextProvider: React.FC<React.PropsWithChildren> = (props) => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const onAddTodoHandler = (todoText: string) => {
@@ -38,5 +38,4 @@ const TodosContentProvider: React.FC<React.PropsWithChildren> = (props) => {
   );
 };
 
-// export { TodosContentProvider };
-export default TodosContentProvider;
+export default TodosContextProvider;
